@@ -1,0 +1,52 @@
+ortal.netzer
+
+
+=============================
+=      File description     =
+=============================
+SpaceShip.java - The main class of the SpaceShip objects.
+                 All the specific space ships are inherited from this class.
+HumanSpaceShip.java - Contains the human SpaceShip class, the human space-ship is controlled by the player.
+RunnerSpaceShip.java - Contains the runner SpaceShip class, the runner space-ship is running from all the other
+                       space-ships.
+BasherSpaceShip.java - Contains the basher SpaceShip class, the basher space-ship tries to hit all the other
+                       space-ships.
+AggressiveSpaceShip.java - Contains the aggressive SpaceShip class, the aggressive space-ship tries to hit and shot all
+                           the other space-ships.
+DrunkardSpaceShip.java - Contains the drunk SpaceShip class, the drunk space-ship goes in random length circles left and
+                         right, and shot randomly.
+SpecialSpaceShip.java - Contains the special SpaceShip class, the special space-ship tries to hit and shot all the other
+                        space-ships, it doesn't have the firing cool down counting, and putting shield doesn't takes
+                        energy for him.
+SpaceShipFactory.java - Contains the space-ship factory class. At the beginning of running the game, this class will
+                        create the space-ships that the user asked for.
+
+
+=============================
+=          Design           =
+=============================
+I implemented all the specific space ships classes, using inheritance because most of the methods and the attributes are
+common for all the kinds of space-ships. In the method "doAction" in the SpaceShip class I put actions that most of the
+space-ship needs to do every round, and in every specific space-ship class, I created a new "doAction" method that
+contains the specific action every space-ship needs to do. If that specific space-ship is common with the actions that
+appears in the main SpaceShip class, I used "super.doAction" to make those actions.
+The second method that change between the different space-ships is "getImage". In the main SpaceShip class I implemented
+this method so it will fit all the space-ships except the human. In the human space-ship class, I created a "getImage"
+method that overrides on the original one and giving the human space-ship images.
+
+
+=============================
+=  Implementation details   =
+=============================
+* Drunkard:
+  My drunk space-ship is going on random length circles and shots randomly.
+  Every length of circle is a random number between minimum length and maximum length, and for every circle, their is
+  also a random number of rounds until the space-ship will change it's direction.
+  In each round, it will take a random boolean value and will shot if it gave true (and all the other conditions
+
+* Special:
+  My special space-ship is a very strong space-ship. It doesn't have any restrictions on the firing cool down time, and
+  also putting it's shield on doesn't cost any energy. It will try all the time to collide with other space-ships and to
+  shot them, if they are close enough. more then that, whenever it will be very close to another space-ship, it will put
+  it's shield on, and then will try to hit them.
+
